@@ -1,0 +1,30 @@
+{
+  "name": "gulp-fonter",
+  "version": "0.0.1",
+  "description": "Font subsetting and converting plugin for gulp",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mazgrze/gulp-fonter.git"
+  },
+  "keywords": [
+    "gulp-plugin",
+    "font",
+    "webfont",
+    "fonts",
+    "ttf",
+    "eot",
+    "woff",
+    "svg"
+  ],
+  "author": "Grzegorz Mazurek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mazgrze/gulp-fonter/issues"
+  },
+  "homepage": "https://github.com/Mazgrze/gulp-fonter#readme",
+  "dependencies": {
+    "fonteditor-core": "^1.0.5"
+  }
+}
