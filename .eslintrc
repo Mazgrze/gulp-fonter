@@ -7,7 +7,8 @@
     },
     "parserOptions": { "ecmaVersion": 6 },
     "rules": {
-        "eqeqeq": "warn",
-        "indent": ["error", 4, { "MemberExpression": 0 }]
+        "eqeqeq": "error",
+        "indent": ["error", 4, { "MemberExpression": 0 }],
+        "quotes": ["warn", "single"]
     }
 }
