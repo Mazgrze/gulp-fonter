@@ -23,7 +23,7 @@ gulp.task('fonts', () => {
 Plugin accepts all properties accepted by fonteditor-core, and additionally **formats** property with target formats. Format of original font is recognized automatically via extension of file.
 
 
-| propery       | possible values (default)           | Description                           |
+| property       | possible values (default)           | Description                          |
 | ------------- |:-----------------------------------:|---------------------------------------|
 | subset        | null or array of ascii codes (null) | Set of ascii codes of glyphs, which   |
 | hinting       | boolean (true)                      | save font hinting                     |
