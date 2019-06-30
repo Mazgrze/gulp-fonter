@@ -1,4 +1,4 @@
-let config = require('./config');
+let config = require('../lib/config');
 
 describe('font type validation tests', () => {
     test('should accept woff font', () => {
@@ -59,10 +59,22 @@ describe('normalize config tests', () => {
             })
         );
     });
-
-    test('should create', () => {});
+    test('should use default format', () => {
+        expect(
+            config.normalizeConf(
+                {
+                    formats: ['zip']
+                },
+                'ttf'
+            )
+        ).toEqual(
+            expect.objectContaining({
+                type: 'ttf',
+                formats: ['ttf']
+            })
+        );
+    });
 });
-
 describe('subset conversion tests', () => {
     test('should make array from string', () => {
         expect(config.stringToAscii('azzzertyyyy')).toEqual([
