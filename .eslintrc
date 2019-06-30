@@ -1,5 +1,5 @@
 {
-    "extends": ["eslint:recommended"],
+    "extends": ["eslint:recommended", "prettier"],
     "env": {
         "es6": true,
         "node": true,
@@ -8,7 +8,10 @@
     "parserOptions": { "ecmaVersion": 6 },
     "rules": {
         "eqeqeq": "error",
-        "indent": ["error", 4, { "MemberExpression": 0 }],
-        "quotes": ["warn", "single"]
+        "quotes": ["warn", "single"],
+        "no-console": "off",
+        "array-element-newline": "off",
+        "indent": ["error", 4],
+        "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 2 }]
     }
 }
