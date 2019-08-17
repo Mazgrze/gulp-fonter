@@ -1,4 +1,4 @@
-let config = require('../lib/config');
+const config = require('../lib/config');
 
 describe('font type validation tests', () => {
     test('should accept woff font', () => {
@@ -86,4 +86,23 @@ describe('subset conversion tests', () => {
             121
         ]);
     });
+});
+describe('filter tests', () => {
+    test('should filter inappropriate formats', () => {
+        expect(config.filterFormats({formats:['ttf', 'woff', 'woff2'], type:'ttf'}))
+        .toEqual([
+            'ttf', 'woff'
+        ])
+    })
+    test('should create array from string', () => {
+        expect(config.filterFormats({type:'ttf'})).toEqual([
+            'ttf'
+        ])
+    })
+    test('should chose proper type', () => {
+
+        expect(config.filterFormats({formats:['zip'],type:'ttf'})).toEqual([
+            'ttf'
+        ])
+    })
 });

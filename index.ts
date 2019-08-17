@@ -1,11 +1,14 @@
-const Transform = require('stream').Transform;
-const Font = require('fonteditor-core').Font;
+import { FinalConfiguration, InputConfiguration, FontType } from './lib/types';
+import { TransformCallback } from 'stream';
+
+const { Transform } = require('stream');
+const { Font } = require('fonteditor-core');
 const config = require('./lib/config');
 
-module.exports = function(options = {}) {
+module.exports = function(options: InputConfiguration = {}) {
     const transformStream = new Transform({ objectMode: true });
-    transformStream._transform = function(source, encoding, callback) {
-        let fontType = source.extname.substr(1);
+    transformStream._transform = function(source:any, encoding:string, callback:TransformCallback) {
+        const fontType: String = source.extname.substr(1);
 
         // Check if font type is proper
         if (!config.isAcceptableType(fontType)) {
@@ -16,14 +19,17 @@ module.exports = function(options = {}) {
             return callback(null, source);
         }
 
-        const normalizedConf = config.normalizeConf(options, fontType);
+        const normalizedConf: FinalConfiguration = config.normalizeConf(
+            options,
+            fontType
+        );
         const fontBuffer = source.contents;
 
         try {
             var font = Font.create(fontBuffer, normalizedConf);
             for (let type of normalizedConf.formats) {
                 //clone file
-                let newFont = source.clone();
+                const newFont = source.clone();
                 newFont.path = source.dirname + '\\' + source.stem + '.' + type;
 
                 //convert font buffer
