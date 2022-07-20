@@ -19,7 +19,7 @@ module.exports = function (options = {}) {
             for (let type of normalizedConf.formats) {
                 //clone file
                 const newFont = source.clone();
-                newFont.path = source.dirname + '\\' + source.stem + '.' + type;
+                newFont.path = source.dirname + '/' + source.stem + '.' + type;
                 //convert font buffer
                 newFont.contents = font.write(config.normalizeConf(normalizedConf, type));
                 this.push(newFont); // add new file to stream
