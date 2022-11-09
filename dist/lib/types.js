@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FontType = void 0;
 var FontType;
 (function (FontType) {
     FontType[FontType["ttf"] = 0] = "ttf";
